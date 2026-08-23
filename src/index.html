@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Marian — 20 lat</title>
+<meta name="description" content="Historie, anegdoty i ciekawostki zebrane na pożegnanie Mariana po dwudziestu latach.">
+<style>
+:root{
+  --paper:#F2F1EC;
+  --panel:#EBE9E2;
+  --ink:#1B1A17;
+  --ink-soft:#57544C;
+  --ink-faint:#8A867C;
+  --rule:#D8D5CB;
+  --accent:#2E5E5B;
+  --accent-weak:rgba(46,94,91,.10);
+
+  --font-display:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --font-body:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --font-ui:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  --nav-w:250px;
+  --measure:34rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15171A;
+    --panel:#1B1E22;
+    --ink:#E7E4DD;
+    --ink-soft:#A3A099;
+    --ink-faint:#7C7972;
+    --rule:#2B2F34;
+    --accent:#79B4AC;
+    --accent-weak:rgba(121,180,172,.12);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15171A;
+  --panel:#1B1E22;
+  --ink:#E7E4DD;
+  --ink-soft:#A3A099;
+  --ink-faint:#7C7972;
+  --rule:#2B2F34;
+  --accent:#79B4AC;
+  --accent-weak:rgba(121,180,172,.12);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:18px;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;
+  top:0;left:0;bottom:0;
+  width:var(--nav-w);
+  padding:2.6rem 1.6rem 2rem 2rem;
+  overflow-y:auto;
+  background:var(--paper);
+  font-family:var(--font-ui);
+}
+.nav__label{
+  font-size:.6875rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:0 0 1.25rem;
+}
+.nav__list{list-style:none;margin:0;padding:0}
+.nav__list li{margin-bottom:1.05rem}
+.nav a{
+  display:block;
+  text-decoration:none;
+  color:var(--ink-soft);
+  font-size:.875rem;
+  line-height:1.35;
+  padding-left:.85rem;
+  border-left:2px solid transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.nav a:hover{color:var(--ink)}
+.nav a.is-active{
+  color:var(--ink);
+  border-left-color:var(--accent);
+  font-weight:600;
+}
+
+.themeToggle{
+  position:fixed;
+  top:1.1rem;right:1.2rem;
+  z-index:30;
+  width:2.35rem;height:2.35rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--ink-faint);
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  transition:color .18s ease;
+}
+.themeToggle:hover{color:var(--ink)}
+.themeToggle svg{width:1.15rem;height:1.15rem;display:block}
+.themeToggle .moon{display:none}
+:root[data-theme="dark"] .themeToggle .moon{display:block}
+:root[data-theme="dark"] .themeToggle .sun{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .themeToggle .moon{display:block}
+  :root:not([data-theme="light"]) .themeToggle .sun{display:none}
+}
+
+.navToggle{
+  display:none;
+  position:fixed;
+  top:1.1rem;left:1.2rem;
+  z-index:30;
+  width:2.35rem;height:2.35rem;
+  align-items:center;
+  justify-content:center;
+  color:var(--ink-faint);
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  transition:color .18s ease;
+}
+.navToggle:hover{color:var(--ink)}
+.navToggle svg{width:1.15rem;height:1.15rem;display:block}
+.scrim{display:none}
+
+/* ---------- page ---------- */
+.page{
+  margin-left:var(--nav-w);
+  padding:0 2rem 6rem;
+}
+.wrap{max-width:var(--measure);margin:0 auto}
+
+/* ---------- hero ---------- */
+.hero{padding:7.5rem 0 5rem}
+.hero h1{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(3.6rem,11vw,6.2rem);
+  line-height:.94;
+  letter-spacing:-.025em;
+  margin:0;
+}
+.hero .years{
+  display:block;
+  font-size:.3em;
+  letter-spacing:.02em;
+  color:var(--accent);
+  margin-top:.55em;
+}
+
+/* ---------- entries ---------- */
+.entry{
+  padding:3.4rem 0 .5rem;
+  border-top:1px solid var(--rule);
+  scroll-margin-top:2rem;
+}
+.entry:first-of-type{border-top:none;padding-top:0}
+.entry h2{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:1.85rem;
+  line-height:1.2;
+  letter-spacing:-.01em;
+  margin:0 0 1.5rem;
+}
+.entry p{margin:0 0 1.3rem}
+.entry ol{
+  margin:0 0 1.3rem;
+  padding-left:1.4rem;
+}
+.entry ol li{margin-bottom:1.3rem}
+.entry ol li::marker{color:var(--accent);font-family:var(--font-ui);font-size:.8em}
+.lead{color:var(--ink-soft)}
+
+.byline{
+  margin:0 0 .5rem;
+  text-align:right;
+  font-family:var(--font-ui);
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+
+/* ---------- colophon ---------- */
+.colophon{
+  margin-top:4.5rem;
+  padding-top:1.4rem;
+  border-top:1px solid var(--rule);
+  font-family:var(--font-ui);
+  font-size:.8125rem;
+  line-height:1.6;
+  color:var(--ink-faint);
+}
+.colophon a{
+  color:var(--ink-soft);
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.18em;
+}
+.colophon a:hover{color:var(--accent)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- mobile ---------- */
+@media (max-width:980px){
+  body{font-size:17px}
+  .navToggle{display:flex}
+  .nav{
+    transform:translateX(-100%);
+    transition:transform .22s ease;
+    z-index:25;
+    width:270px;
+    padding-top:4.4rem;
+    box-shadow:0 0 40px rgba(0,0,0,.12);
+  }
+  .nav.is-open{transform:none}
+  .scrim{
+    display:block;
+    position:fixed;inset:0;
+    background:rgba(0,0,0,.35);
+    opacity:0;pointer-events:none;
+    transition:opacity .22s ease;
+    z-index:20;
+  }
+  .scrim.is-open{opacity:1;pointer-events:auto}
+  .page{margin-left:0;padding:0 1.4rem 4rem}
+  .hero{padding:5.5rem 0 2.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ---------- print ---------- */
+@media print{
+  .nav,.navToggle,.scrim,.themeToggle{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .page{margin:0;padding:0}
+  .wrap{max-width:none}
+  .hero{padding:0 0 1.5rem}
+  .entry{page-break-inside:avoid;border-top:1px solid #bbb}
+  a{color:#000;text-decoration:none}
+}
+</style>
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('marian-theme');
+    if(t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+</head>
+<body>
+
+<button class="navToggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Spis treści" title="Spis treści">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+    <path d="M4 6.5h16M4 12h16M4 17.5h16"/>
+  </svg>
+</button>
+<div class="scrim" id="scrim" hidden></div>
+
+<button class="themeToggle" id="themeToggle" type="button" aria-label="Zmień motyw" title="Zmień motyw">
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2"/>
+    <path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+  </svg>
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20.5 14.3A8.6 8.6 0 1 1 9.7 3.5a6.9 6.9 0 0 0 10.8 10.8z"/>
+  </svg>
+</button>
+
+<nav class="nav" id="nav" aria-label="Spis historii">
+  <p class="nav__label">Spis treści</p>
+  <ul class="nav__list">
+    <li><a href="#claude">Marian vs. Claude</a></li>
+    <li><a href="#nie-pij">Nie pij z Marianem!</a></li>
+    <li><a href="#racja">Marian ma rację</a></li>
+    <li><a href="#zawzietosc">Zawziętość</a></li>
+    <li><a href="#brzytwa">Brzytwa Mariana</a></li>
+    <li><a href="#niemcy">Niemcy</a></li>
+    <li><a href="#niemcy-2">Niemcy 2</a></li>
+    <li><a href="#riksze">Riksze i serwery</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="wrap">
+
+    <header class="hero">
+      <h1>Marian<span class="years">20 lat</span></h1>
+    </header>
+
+    <article class="entry" id="claude">
+      <h2>Marian vs. Claude</h2>
+      <p>Marian zakochał się w LLM-ach po przejściu do prowadzonego przeze mnie AI teamu; po kilku sesjach z Claude Code stwierdził, że „jest uzależniający”. Normalnie programista powinien bardzo uważać na slop, który produkuje AI, bo on kocha robić zależności w stylu „wszystko jest powiązane ze wszystkim, debug będzie koszmarem”, ale Marian promptował w taki sposób, że nie było to dla niego problemem, i twierdził, że „Claude sobie spokojnie ze wszystkim poradzi”. Nie uwierzyłbym w te słowa żadnemu innemu programiście, ale Marianowi — tak. Myślę, że zaczął go traktować trochę jak kolegę z pracy.</p>
+      <p>Pewnego dnia przyszedł do mnie i powiedział, że opóźnił mu się task, bo pokłócił się z Claudem. „Ale jak to?” — zapytałem, a Marian na to: „No bo mi próbował wmówić, że mówiłem coś, czego wcale nie mówiłem”. Okazało się, że Claude, mając w kontekście całkiem sporo kodu, zapomniał o wcześniejszym przebiegu rozmowy i próbował dość obcesowo wmówić Marianowi, że się myli. Marian wymienił więc z nim kilkanaście wiadomości (z całym repozytorium w kontekście każdej z nich — wtedy jeszcze nie były cache’owane!) i spłukał się ze wszystkich tokenów, bo nie zgodził się na to, żeby Claude wmawiał mu nieprawdę.</p>
+      <p class="byline">Michał</p>
+    </article>
+
+    <article class="entry" id="nie-pij">
+      <h2>Nie pij z Marianem!</h2>
+      <p>Marian jest niepozorny — ma żelazną głowę i bardzo lubi imprezować. Raz w Game Desire mieliśmy imprezę integracyjną, po której stwierdziliśmy, że było za mało alkoholu i trzeba dopić. Piłem wtedy dość dużo, więc miałem wprawę, ale i tak każdy w firmie ostrzegał mnie: „Nie pij z Marianem!”. Nie posłuchałem.</p>
+      <p>Najpierw wspólnie ze Zbyszkiem i Adamem wpakowaliśmy się w taksówkę i Marian zabrał nas do jakiejś na wpół tajnej miejscówki przy Straszewskiego. Mówił, że to dziupla pokerowa — grywał wtedy dużo w pokera, który krótko wcześniej został zdelegalizowany przez Tuska, więc kitrał się ze znajomymi po nietypowych miejscówkach i nieoficjalnych turniejach. W jedno z takich miejsc mnie zabrał, kupiłem wtedy Glenfiddich 12 i był to początek końca — dla mnie, nie dla Mariana.</p>
+      <p>Później zabrał nas do Kabaretu przy Krakowskiej, tam postanowił mi pokazać swój ulubiony drink — czarny rum z colą i limonką. Był pyszny. Zasnąłem na stole. Marian się bardzo cieszył, że tak długo z nim wytrzymaliśmy, po czym pił dalej. Do dzisiaj czarny rum z colą jest moim absolutnie ulubionym drinkiem.</p>
+      <p class="byline">anonim</p>
+    </article>
+
+    <article class="entry" id="racja">
+      <h2>Marian ma rację</h2>
+      <p>Marian potrafił spędzić 3 godziny na tłumaczeniu nam swojego nowego pomysłu (albo tłumaczeniu Opusowi, dlaczego on nie ma racji XD), podczas gdy my patrzyliśmy na niego jak na wariata, nie widząc w tym żadnego sensu. A potem człowiek wracał do domu, brał wieczorny prysznic i w połowie mycia głowy nagle doznawał olśnienia: „Kurczę, przecież to jest genialne… Marian ma rację!”.</p>
+      <p class="byline">Maciej</p>
+    </article>
+
+    <article class="entry" id="zawzietosc">
+      <h2>Zawziętość</h2>
+      <p>Na pewnej integracji siedzieliśmy przy stole, rozmowa się kleiła, każdy opowiadał żart, piliśmy, gadaliśmy. Nagle Marian zrywa się i mówi, że musi zrobić kroki. Myśleliśmy, że żartuje — okazało się, że jest 30 minut do północy, a Marian założył, że zrobi X kroków (nie pamiętam ile, ale była to naprawdę duża liczba, także szacun).</p>
+      <p>Było dość zimno, zarzucił bluzę i poszedł dobijać kroki dookoła miejsca, gdzie siedzieliśmy. Po paru minutach wrócił zadowolony, że się udało. To był dla mnie taki szok — nigdy nie widziałem nikogo tak zawziętego, osoby, która gdy coś postanowi, tak tego pilnuje. Marian, nie zmieniaj się, jesteś świetny i tak ciekawy, dodatkowo masz tyle wiedzy!</p>
+      <p class="byline">anonim z SATO</p>
+    </article>
+
+    <article class="entry" id="brzytwa">
+      <h2>Brzytwa Mariana</h2>
+      <p>Dawno, dawno temu Marian zrobił truncate na produkcyjnej bazie danych. Ten event od tego czasu był nazywany brzytwą Mariana. Jak się okazało po czasie, te dane nie były nikomu do niczego potrzebne, więc w sumie dobrze, że to zrobił :)</p>
+      <p>Gdy jeszcze pracowałem w GD, ktoś opowiadał, że Marian z okazji jakiegoś eventu, który organizował, zamówił jako transport taxi — Mercedesy dla wszystkich. Nie wiem, skąd wziął tyle tych samochodów w Krakowie :)</p>
+      <p>Wszystkiego dobrego, Marian, na nowej drodze :)</p>
+      <p class="byline">Łukasz</p>
+    </article>
+
+    <article class="entry" id="niemcy">
+      <h2>Niemcy</h2>
+      <p>To była jedna z pierwszych firmowych imprez integracyjnych, na której byłem. Towarzystwo się już powoli wykruszało, knajpę chyba już zamykali, to (jako że integrowałem się z cerebro) z Marianem i Adamem wylądowaliśmy gdzieś na wałach wiślanych. Tematy różne, nagle Marian pyta, czy ta ksywa „Hans” ma coś z Niemcami wspólnego. Opowiedziawszy historię (że to były głupie pomysły psora z angielskiego jeszcze z czasów liceum), Marian odetchnął z ulgą, bo mu to spokoju nie dawało.</p>
+      <p class="byline">Hans</p>
+    </article>
+
+    <article class="entry" id="niemcy-2">
+      <h2>Niemcy 2</h2>
+      <p>W okresie wypowiedzenia postanowiliśmy się spotkać, luźno pogadać i rozegrać partyjkę w Monopoly online. Gra rozpoczęła się dobrze dla Mariana, który jako pierwszy wymaxował swoje domki. Szybko zbankrutował niemal wszystkich rywali i przejął udziały na całej planszy. Prawie całej, bo uparcie odmawiał przejęcia Niemiec.</p>
+      <p>Zostaliśmy we dwóch: on i ja. Bardzo często trafiałem wtedy do więzienia — z początku pech, potem błogosławieństwo, bo zza krat nie mogłem wpadać do Marianowych nieruchomości. A Marian coraz częściej zostawiał u mnie znaczne sumy, goszcząc w hotelach Frankfurtu, Monachium i Berlina. Ostatecznie, jakimś cudem, gra przechyliła się na moją korzyść. Marian przegrał, swoich pryncypiów nie zmienił.</p>
+      <p class="byline">Łukasz</p>
+    </article>
+
+    <article class="entry" id="riksze">
+      <h2>Riksze i serwery</h2>
+      <p>Kiedy zostałem poproszony o wpis i zacząłem przypominać sobie tamte czasy, aż mi się łezka w oku zakręciła. Muszę przyznać, że to był jeden z najlepszych okresów w moim życiu, a Marian był jego dużą częścią.</p>
+      <p>Wracając do historii — są chyba dwie, które najlepiej opisują Mariana i nasze przygody:</p>
+      <ol>
+        <li>
+          <p>To był mój pierwszy kontakt z Marianem i nie zapomnę go do końca życia. Pracowałem wtedy w firmie niespełna miesiąc, była to moja pierwsza praca ever i zostało zorganizowane firmowe piwo. Zanim Marian dołączył do nas, sączących złoty trunek, wiele osób ostrzegało mnie, żebym uważał na picie z Marianem. Opowiadali też historie z jego udziałem — wszystkie były tak szalone, że byłem przekonany, że chcą mnie wkręcić.</p>
+          <p>Impreza się rozkręcała, dołączył Marian, ale wszystko było normalnie: siedzieliśmy, gadaliśmy, dobrze się bawiliśmy. Aż nagle grupa zaczęła się rozchodzić i wyszliśmy przed lokal. Wtedy Marian rzucił: „Weźmy riksze i jedźmy na Kazimierz” — i gdzieś pobiegł. Pomyślałem sobie, że niezła faza i zaraz mu przejdzie, zacząłem się żegnać z ludźmi i już miałem iść, kiedy widzę, że Marian biegnie z powrotem, a za nim jadą dwie riksze. Totalna abstrakcja. Zdębiałem. Muszę przyznać, że jazda rikszą po nocnym Krakowie to całkiem ciekawe doświadczenie :)</p>
+        </li>
+        <li>
+          <p>Druga sytuacja to moment, kiedy dostałem dostępy do produkcyjnego AWS-a i miałem wpięte notyfikacje. Któregoś ciepłego wieczoru, w piątek po pracy, siedzę sobie już przy piwku i nagle dostaję mnóstwo SMS-ów, że CPU na serwerach dobija do maksa. Byłem wtedy mało doświadczony, więc dzwonię do Mariana, czy może już wie, co się dzieje, i czy mam asap wracać do kompa. A w odpowiedzi słyszę: „Spokojnie, musiałem coś przetestować i kompiluję serwery na produkcji”. Btw, to były piękne czasy serwerów w C++.</p>
+        </li>
+      </ol>
+      <p>Pozdrawiam Cię, Marian, serdecznie.</p>
+      <p class="byline">Młody</p>
+    </article>
+
+    <footer class="colophon">
+      Zebrane przez ŁF, sierpień 2026. Chcesz dorzucić coś od siebie? Podeślij na maila <a href="mailto:iiltvaozzf+marian@gmail.com">iiltvaozzf+marian@gmail.com</a>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  var scrim = document.getElementById('scrim');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+
+  function setOpen(open){
+    nav.classList.toggle('is-open', open);
+    scrim.classList.toggle('is-open', open);
+    scrim.hidden = !open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', function(){ setOpen(!nav.classList.contains('is-open')); });
+  scrim.addEventListener('click', function(){ setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
+  links.forEach(function(a){
+    a.addEventListener('click', function(){ if(window.innerWidth <= 980) setOpen(false); });
+  });
+
+  function activate(id){
+    links.forEach(function(a){
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  if ('IntersectionObserver' in window){
+    var visible = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ visible[en.target.id] = en.isIntersecting; });
+      for (var i = 0; i < sections.length; i++){
+        if (sections[i] && visible[sections[i].id]){ activate(sections[i].id); return; }
+      }
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function(s){ if(s) io.observe(s); });
+  }
+  activate('claude');
+
+  var root = document.documentElement;
+  var themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme');
+    if(!current){
+      current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('marian-theme', next); }catch(e){}
+  });
+})();
+</script>
+
+</body>
+</html>
